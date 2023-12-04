@@ -1,21 +1,4 @@
-import { getBingoData, fileRead } from "./helper";
-
-export const bingoCheck = (
-  calledNumbers: number[],
-  bingoCard: number[][]
-): boolean => {
-  const calledSet = new Set(calledNumbers);
-
-  for (let row = 0; row < bingoCard.length; row++) {
-    for (let col = 0; col < bingoCard[0].length; col++) {
-      if (!calledSet.has(bingoCard[row][col])) {
-        return false;
-      }
-    }
-  }
-
-  return true;
-};
+import { getBingoData, fileRead, bingoCheck } from "./helper";
 
 const main = async () => {
   try {
@@ -27,7 +10,6 @@ const main = async () => {
     );
 
     console.log(checkedResults);
-    return checkedResults;
   } catch (err) {
     console.log(err);
     throw new Error("");
